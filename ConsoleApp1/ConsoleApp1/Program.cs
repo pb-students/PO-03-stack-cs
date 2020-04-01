@@ -1,6 +1,6 @@
-﻿///Zadanie 3 - stos obiektowo
+﻿///Zadanie 3 - stos obiektowo (wersja po poprawce)
 ///
-///
+///Wykonał Daniel Pietrzeniuk
 
 using System;
 
@@ -21,16 +21,22 @@ namespace ConsoleApp1
             ///proszę pisać jeśli nie o takie rozwiązanie chodziło, wtedy spróbuję jak najszybciej się poprawić :)
             for (int i = 0; i < 10; i++)
             {
-                int number = Convert.ToInt32(Console.ReadLine());
+                int number = Convert.ToInt32(i);//Console.ReadLine());
                 stos1.push(number);
-                stos2.push(number);
             }
 
-            Console.WriteLine("\nWpisane wartości w odwrotnej kolejności to:");
+            while(!stos1.empty())
+            {
+                stos2.push(stos1.top());
+                stos1.pop();
+            }
+
+            Console.WriteLine("\nWpisane wartości w poprawnej kolejności to:");
 
             while(!stos2.empty())
             {
                 Console.WriteLine(stos2.top());
+                stos1.push(stos2.top());
                 stos2.pop();
             }
         }
